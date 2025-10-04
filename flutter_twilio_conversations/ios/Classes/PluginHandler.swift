@@ -171,6 +171,7 @@ public class PluginHandler {
                 flutterResult(Mapper.chatClientToDict(chatClient))
             } else {
                 SwiftTwilioConversationsPlugin.debug("TwilioConversationsPlugin.create => ChatClient.create onError: \(String(describing: result.error))")
+                flutterResult(FlutterError(code: "CREATE_ERROR", message: "Failed to create ChatClient: \(String(describing: result.error))", details: nil))
             }
             } as TCHTwilioClientCompletion)
     }
